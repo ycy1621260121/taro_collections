@@ -1,14 +1,14 @@
-import React, { useCallback } from "react";
-import { View, Text, Button, Image } from "@tarojs/components";
-import { useEnv, useNavigationBar, useModal, useToast } from "taro-hooks";
-import logo from "./hook.png";
+import React, {useCallback} from "react";
+import {View, Text, Button, Image} from "@tarojs/components";
+import {useEnv, useNavigationBar, useModal, useToast} from "taro-hooks";
+import logo from "@/images/hook.png";
 import HelloWord from "@/components/HelloWord";
 
 import './index.less'
 
 const Index = () => {
   const env = useEnv();
-  const [_, { setTitle }] = useNavigationBar({ title: "Taro Hooks" });
+  const [_, {setTitle}] = useNavigationBar({title: "Taro Hooks"});
   const [show] = useModal({
     title: "Taro Hooks!",
     showCancel: false,
@@ -16,17 +16,17 @@ const Index = () => {
     confirmText: "支持一下",
     mask: true,
   });
-  const [showToast] = useToast({ mask: true });
+  const [showToast] = useToast({mask: true});
 
   const handleModal = useCallback(() => {
-    show({ content: "不如给一个star⭐️!" }).then(() => {
-      showToast({ title: "点击了支持!" });
+    show({content: "不如给一个star⭐️!"}).then(() => {
+      showToast({title: "点击了支持!"});
     });
   }, [show, showToast]);
 
   return (
     <View className="wrapper">
-      <Image className="logo" src={logo} />
+      <Image className="logo" src={logo}/>
       <Text className="title">为Taro而设计的Hooks Library</Text>
       <Text className="desc">
         目前覆盖70%官方API. 抹平部分API在H5端短板. 提供近40+Hooks!

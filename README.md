@@ -12,9 +12,12 @@
 
 2、src
     components   //组件库
+    images       //图片文件
     pages        //项目页面集合目录
       testA      //项目testA
-      testB      //项目testB，与testA为不同项目，他们都集中在这套代码里面，
+      testB      //项目testB，与testA为不同项目，他们都集中在这套代码里面
+    router       //每个项目路由pages配置
+    tabBar       //每个项目底部tabBar配置
     app.config.ts//项目路由配置
     app.less     //全局less
     app.ts       //主入口

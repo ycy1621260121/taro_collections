@@ -13,14 +13,13 @@
 
 
 
-var Index = function Index() {
+var User = function User() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_1__.View, {
-    className: "wrapper",
     children: "\u7A7A\u7A7A\u5982\u4E5F"
   });
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Index);
+/* harmony default export */ __webpack_exports__["default"] = (User);
 
 /***/ }),
 

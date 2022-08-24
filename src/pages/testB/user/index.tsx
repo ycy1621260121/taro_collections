@@ -1,12 +1,12 @@
 import React, { useCallback } from "react";
 import { View, Text, Button, Image } from "@tarojs/components";
 
-const Index = () => {
+const User = () => {
   return (
-    <View className="wrapper">
+    <View>
       空空如也
     </View>
   );
 };
 
-export default Index;
+export default User;

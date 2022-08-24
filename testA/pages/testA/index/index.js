@@ -15,7 +15,7 @@
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "webpack/container/remote/react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _tarojs_components__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @tarojs/components */ "./node_modules/@tarojs/plugin-platform-weapp/dist/components-react.js");
-/* harmony import */ var _hook_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hook.png */ "./src/pages/testA/index/hook.png");
+/* harmony import */ var _images_hook_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/images/hook.png */ "./src/images/hook.png");
 /* harmony import */ var _components_HelloWord__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/HelloWord */ "./src/components/HelloWord/index.tsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "webpack/container/remote/react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
@@ -71,7 +71,7 @@ var Index = function Index() {
     className: "wrapper",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Image, {
       className: "logo",
-      src: _hook_png__WEBPACK_IMPORTED_MODULE_1__
+      src: _images_hook_png__WEBPACK_IMPORTED_MODULE_1__
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Text, {
       className: "title",
       children: "\u4E3ATaro\u800C\u8BBE\u8BA1\u7684Hooks Library"
@@ -509,14 +509,14 @@ var inst = Page((0,_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__.createPageConfig
 
 /***/ }),
 
-/***/ "./src/pages/testA/index/hook.png":
-/*!****************************************!*\
-  !*** ./src/pages/testA/index/hook.png ***!
-  \****************************************/
+/***/ "./src/images/hook.png":
+/*!*****************************!*\
+  !*** ./src/images/hook.png ***!
+  \*****************************/
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
-module.exports = __webpack_require__.p + "pages/testA/index/hook.png";
+module.exports = __webpack_require__.p + "images/hook.png";
 
 /***/ }),
 
