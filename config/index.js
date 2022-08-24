@@ -10,7 +10,7 @@ const config = {
     828: 1.81 / 2,
   },
   sourceRoot: "src",
-  outputRoot: project,
+  outputRoot: project + '/' + process.env.TARO_ENV,
   plugins: [],
   defineConstants: {},
   copy: {

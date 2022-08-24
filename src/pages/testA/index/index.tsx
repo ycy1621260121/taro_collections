@@ -36,7 +36,7 @@ const Index:React.FC<indexProp> = (loading) => {
         并结合ahook适配Taro!
       </Text>
       <View className='list'>
-        <Text className='label'>运行环境testA</Text>
+        <Text className='label'>运行环境</Text>
         <Text className='note'>{env}</Text>
       </View>
       <HelloWord></HelloWord>
