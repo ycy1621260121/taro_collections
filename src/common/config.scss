@@ -25,7 +25,7 @@ $default-paddingTop: 24px;
 //默认居中
 @mixin defaultCenter {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
