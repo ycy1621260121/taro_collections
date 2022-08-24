@@ -7,7 +7,7 @@ import HelloWord from "@/components/HelloWord";
 import './index.scss'
 
 interface indexProp {
-  dispath: string
+  loading?: boolean
 }
 const Index:React.FC<indexProp> = () => {
   const env = useEnv();
