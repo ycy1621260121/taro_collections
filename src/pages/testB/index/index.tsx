@@ -1,10 +1,10 @@
-import {useCallback} from "react";
+import {useCallback, useEffect} from "react";
 import {View, Text, Button, Image} from "@tarojs/components";
 import {useEnv, useNavigationBar, useModal, useToast} from "taro-hooks";
 import logo from "@/images/hook.png";
 // @ts-ignore
 import HelloWord from "@/components/HelloWord";
-
+//import {getBookList} from '@/common/api/home'
 import './index.scss'
 
 const Index = () => {
@@ -18,7 +18,15 @@ const Index = () => {
     mask: true,
   });
   const [showToast] = useToast({mask: true});
-
+  // useEffect(() => {
+  //   try {
+  //     getBookList({}).then(res => {
+  //       console.log(res)
+  //     })
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // }, [])
   const handleModal = useCallback(() => {
     show({content: "不如给一个star⭐️!"}).then(() => {
       showToast({title: "点击了支持!"});
@@ -27,7 +35,7 @@ const Index = () => {
 
   return (
     <View className='wrapper'>
-      <Image className='logo' src={logo} />
+      <Image className='logo' src={logo}/>
       <View className='list'>
         <Text className='note'>{env}</Text>
       </View>

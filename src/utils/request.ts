@@ -1,132 +1,158 @@
-import env from "./env"
-import Taro from '@tarojs/taro'
+import axios from 'axios';
 
-/**
- * 声明请求对象
- */
-let requestHandler = {
-  params: {},
-  closeLoading: false, //默认显示Toast，如果设置true则不会显示Toast
-  success: function (res) {
-    // success
-  },
-  fail: function () {
-    // fail
-  },
+axios.defaults.baseURL = 'https://localhost:8088/'
+const pending = [] // 声明一个数组用于存储每个ajax请求的取消函数和ajax标识
+const cancelToken = axios.CancelToken
+const removeRepeatUrl = (ever) => {
+    // console.log('?????', ever)
+    // console.log('?????', pending)
+    for (const p in pending) {
+        if (pending[p].u === ever.url + '&' + ever.method) { // 当当前请求在数组中存在时执行函数体
+            pending[p].f() // 执行取消操作
+            pending.splice(p, 1) // 把这条记录从数组中移除
+        }
+    }
 }
 
-/**
- * GET请求
- * @param {*} requestHandler
- */
-export async function GET(requestHandler) {
-  await httpRequest('GET', requestHandler)
-}
+const service = axios.create({
+    // process.env.NODE_ENV === 'development' 来判断是否开发环境
+    // easy-mock服务挂了，暂时不使用了
+    //baseURL: '/api',
+    timeout: 50000
+});
 
-/**
- * POST请求
- * @param {*} requestHandler
- */
-export async function POST(requestHandler) {
-  await httpRequest('POST', requestHandler)
-}
-
-/**
- * http request 请求
- * @param {http method} method
- * @param {*} requestHandler
- */
-export async function httpRequest(method, requestHandler) {
-  //注意：可以对params签名等处理
-  let params = requestHandler.params
-  // params = apiParamSign(params)
-  let closeLoading = requestHandler.closeLoading
-
-  if (!closeLoading) {
-    Taro.showLoading({
-      title: '加载中',
-      mask: true,
-    })
-  }
-  console.log(env)
-  Taro.request({
-    url: env.baseUrl,
-    data: params,
-    method: method,// OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-    // responseType: 'text',
-    // credentials: 'include',
-    header: {
-      'content-type': 'application/x-www-form-urlencoded', // 默认值
-    },
-    mode: 'no-cors',
-    success: function (res) {
-      console.log('request success!')
-      console.log(res.data)
-      if (!closeLoading) {
-        Taro.hideLoading()
-      }
-      if (res.data.status == 'success') {
-        requestHandler.success(res.data)
-      } else if (res.data.status == 'error') {
-        //错误回调处理
-        requestHandler.fail()
-        Taro.showToast({
-          title: res.data.msg,
-          icon: 'none'
+service.interceptors.request.use(
+    config => {
+        removeRepeatUrl(config)
+        config.cancelToken = new cancelToken((c) => {
+            // 自定义唯一标识
+            pending.push({u: config.url + '&' + config.method, f: c})
         })
-      } else {
-        //请他情况当成失败处理
-        requestHandler.fail()
-      }
 
+        //默认的tenantId和authorization，上线前要改为动态的
+        config.headers['tenantId'] = '0';
+        config.headers['authorization'] = ''
+        //console.log(config.headers.authorization)
 
+        return config;
     },
-    fail: function (res) {
-      console.log('request failed!')
-      if (!closeLoading) {
-        Taro.hideLoading()
-      }
-      //错误回调处理
-      requestHandler.fail()
+    error => {
+        console.log(error);
+        return Promise.reject();
     }
-  })
-
+);
+const backLogin = (msg) => {
+    //window.location.href = '/'
+    console.log(msg)
 }
 
-/**
- * 系统参数和功能参数做签名（按照服务端接口标准制定）
- * @param {传入功能参数} params
- */
-function apiParamSign(params) {
-  let sysParams = {}
-  let date = new Date();
-  let month = date.getMonth() + 1
-  sysParams.date = date.getFullYear() + "-" + month + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-  ;
-  // data.task = date.getTime();
+let flag = true;
+service.interceptors.response.use(
+    response => {
+        removeRepeatUrl(response.config)
+        if (response.data.code && response.data.code !== 0) {
+            switch (parseInt(response.data.code)) {
+                case 404:
+                    backLogin(response.data.msg)
+                    break;
+                case 506:
+                    backLogin(response.data.msg)
+                    break;
+                case 507:
+                    backLogin(response.data.msg)
+                    break;
+                case 508:
+                    backLogin(response.data.msg)
+                    break;
+                case 403:
+                    backLogin(response.data.msg)
+                    break;
+            }
 
-  sysParams.version = '1.0'
-  sysParams.format = 'json'
-  sysParams.flag = 'dev_flag'
+            if (flag) {
+                uni.showToast({
+                    title: response.data.msg,
+                    icon: 'error',
+                    mask: true
+                })
+                flag = false;
+                setTimeout(() => {
+                    flag = true;
+                }, 1000)
+            }
+            return {code: 403, result: {records: []}}
+        }
+        if (response.status === 200) {
+            return response.data;
+        } else {
+            Promise.reject();
+        }
+    },
+    error => {
+        //console.log(error);
+        if (error && error.response) {
+            let message = "";
+            switch (error.response.status) {
+                case 400:
+                    message = "请求错误";
+                    break;
+                case 401: {
+                    message = "未授权，请登录";
+                    backLogin(message)
+                    break;
+                }
+                case 403:
+                    message = "没有权限，拒绝访问";
+                    break;
+                case 404:
+                    message = `请求地址出错`;
+                    break;
+                case 408:
+                    message = "请求超时";
+                    break;
+                case 500:
+                    message = "服务器内部错误";
+                    break;
+                case 501:
+                    message = "服务未实现";
+                    break;
+                case 502:
+                    message = "网关错误";
+                    break;
+                case 503:
+                    message = "服务不可用";
+                    break;
+                case 504:
+                    message = "网关超时";
+                    break;
+                case 505:
+                    message = "HTTP版本不受支持";
+                    break;
+                default:
+                    break;
+            }
 
-  let data = {}
-  //合并对象
-  Object.assign(data, sysParams, params)
-
-  let keys = []
-  for (var k in data) {
-    if (data.hasOwnProperty(k)) {
-      keys.push(k);
+            //console.log(message, error)
+            if (flag) {
+                uni.showToast({
+                    title: message,
+                    icon: 'error',
+                    mask: true
+                })
+                flag = false;
+                setTimeout(() => {
+                    flag = true;
+                }, 1000)
+            }
+            // ve_message = app.config.globalProperties.$message({
+            //     message,
+            //     type: "error",
+            // });
+            return Promise.reject();
+        } else {
+            return {code: 403, result: {records: []}} //拦截频繁的请求
+        }
     }
-  }
-  keys.sort();
-  let paramsStr = "";
-  for (var i = -0; i < keys.length; i++) {
-    paramsStr += keys[i];
-    paramsStr += data[keys[i]];
-  }
-  let tmp = md5(paramsStr).toUpperCase() + API_BASE_TOKEN;
-  tmp = md5(tmp).toUpperCase();
-  data.sign = tmp;
-  return data;
-}
+);
+
+export default service;

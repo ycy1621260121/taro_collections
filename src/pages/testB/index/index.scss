@@ -21,6 +21,7 @@ page {
 
 .title,
 .desc {
+  @include transverseCenter;
   text-align: center;
   font-size: 32px;
 }

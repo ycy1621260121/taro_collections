@@ -1,5 +1,5 @@
 {
-  "miniprogramRoot": "",
+  "miniprogramRoot": "./",
   "projectname": "floorMaster",
   "description": "楼掌门之小程序",
   "appid": "wxc1bc398b8f605514",
@@ -16,24 +16,10 @@
     "coverView": true,
     "showShadowRootInWxmlPanel": false,
     "scopeDataCheck": false,
-    "useCompilerModule": false,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
-    }
+    "useCompilerModule": false
   },
   "compileType": "miniprogram",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
-  "condition": {},
-  "libVersion": "2.25.4",
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
-  "editorSetting": {
-    "tabIndent": "insertSpaces",
-    "tabSize": 2
-  }
+  "condition": {}
 }
