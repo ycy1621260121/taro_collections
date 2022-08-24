@@ -83,7 +83,7 @@ const config = {
     '@components': path.resolve(__dirname, '..', 'src/components'),
     '@constants': path.resolve(__dirname, '..', 'src/constants'),
     '@reducers': path.resolve(__dirname, '..', 'src/reducers'),
-    '@styles': path.resolve(__dirname, '..', 'src/styles'),
+    '@common': path.resolve(__dirname, '..', 'src/common'),
     '@utils': path.resolve(__dirname, '..', 'src/utils'),
     '@network': path.resolve(__dirname, '..', 'src/network')
   }

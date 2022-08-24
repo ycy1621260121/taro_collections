@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import "./app.less";
+import React from "react";
+import "./app.scss";
 
 const App: React.FC<{
   children: any;

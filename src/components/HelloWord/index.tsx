@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { View, Text, Button, Image } from "@tarojs/components";
-import './index.less'
+import './index.scss'
 
 const HelloWord = () => {
   return (

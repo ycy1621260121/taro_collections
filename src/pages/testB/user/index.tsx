@@ -1,5 +1,4 @@
-import React, { useCallback } from "react";
-import { View, Text, Button, Image } from "@tarojs/components";
+import { View} from "@tarojs/components";
 
 const User = () => {
   return (

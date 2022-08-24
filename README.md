@@ -11,6 +11,7 @@
     index.js     //项目配置文件
 
 2、src
+    common       //封装scss等可共用 
     components   //组件库
     images       //图片文件
     pages        //项目页面集合目录

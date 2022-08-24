@@ -1,0 +1,43 @@
+@charset "UTF-8";
+//白色
+$default-white: white;
+//默认全局背景主题色 !default
+$default-background: #f5f6fa;
+//默认字体、按钮背景主题色
+$default-primary: #63d7d2;
+//默认字体置灰颜色
+$default-grey: #C0C4CC;
+//渐变色
+$default-onLine: linear-gradient(
+  to bottom,
+  #63d7d2,
+  rgba($color: #63d7d2, $alpha: .5)
+);
+//默认导航栏高度
+$default-statusBarHeight: 44px * 2;
+//默认导航栏高度
+$default-statusBarText: 18px * 2;
+//默认页面左右边距
+$default-padding-LeftAndRight: 20px;
+//默认页面上边距
+$default-paddingTop: 24px;
+
+//默认居中
+@mixin defaultCenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+//横向居中
+@mixin transverseCenter {
+  @include defaultCenter;
+  flex-direction: row;
+}
+
+//竖向居中
+@mixin verticalCenter {
+  @include defaultCenter;
+  flex-direction: column;
+}
+

@@ -1,10 +1,11 @@
-import React, {useCallback} from "react";
+import {useCallback} from "react";
 import {View, Text, Button, Image} from "@tarojs/components";
 import {useEnv, useNavigationBar, useModal, useToast} from "taro-hooks";
 import logo from "@/images/hook.png";
+// @ts-ignore
 import HelloWord from "@/components/HelloWord";
 
-import './index.less'
+import './index.scss'
 
 const Index = () => {
   const env = useEnv();
@@ -25,15 +26,15 @@ const Index = () => {
   }, [show, showToast]);
 
   return (
-    <View className="wrapper">
-      <Image className="logo" src={logo}/>
-      <View className="list">
-        <Text className="note">{env}</Text>
+    <View className='wrapper'>
+      <Image className='logo' src={logo} />
+      <View className='list'>
+        <Text className='note'>{env}</Text>
       </View>
-      <Button className="button" onClick={() => setTitle("Taro Hooks Nice!")}>
+      <Button className='button' onClick={() => setTitle("Taro Hooks Nice!")}>
         设置标题
       </Button>
-      <Button className="button" onClick={handleModal}>
+      <Button className='button' onClick={handleModal}>
         使用Modal
       </Button>
       <HelloWord></HelloWord>
