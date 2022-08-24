@@ -1,13 +1,15 @@
-import {useCallback} from "react";
+import React, {useCallback} from "react";
 import {View, Text, Button, Image} from "@tarojs/components";
 import {useEnv, useNavigationBar, useModal, useToast} from "taro-hooks";
 import logo from "@/images/hook.png";
 // @ts-ignore
 import HelloWord from "@/components/HelloWord";
-
 import './index.scss'
 
-const Index = () => {
+interface indexProp {
+  dispath: string
+}
+const Index:React.FC<indexProp> = () => {
   const env = useEnv();
   const [_, {setTitle}] = useNavigationBar({title: "Taro Hooks"});
   const [show] = useModal({
