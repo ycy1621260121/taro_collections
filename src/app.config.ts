@@ -1,8 +1,8 @@
 import project from "../config/project";
 
-const pages = require(`./router/${project}`);
-const tabBar = require(`./tabBar/${project}`);
-const window = require(`./windowObject/${project}`);
+const pages = require(`./router/${project.projectName}`);
+const tabBar = require(`./tabBar/${project.projectName}`);
+const window = require(`./windowObject/${project.projectName}`);
 
 export default {
   pages,

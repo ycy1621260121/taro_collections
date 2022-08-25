@@ -9,7 +9,9 @@
     "css": "less"
   },
   "scripts": {
-    "build:weapp": "taro build --type weapp",
+    "precond-weapp:dev": "cross-env NODE_ENV=development node ./config/updateProjectConfig.js",
+    "precond-weapp:prod": "cross-env NODE_ENV=production node ./config/updateProjectConfig.js",
+    "build:weapp": "npm run precond-weapp:prod && taro build --type weapp",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
     "build:tt": "taro build --type tt",
@@ -18,7 +20,7 @@
     "build:qq": "taro build --type qq",
     "build:jd": "taro build --type jd",
     "build:quickapp": "taro build --type quickapp",
-    "dev:weapp": "npm run build:weapp -- --watch",
+    "dev:weapp": "npm run precond-weapp:dev && npm run build:weapp -- --watch",
     "dev:swan": "npm run build:swan -- --watch",
     "dev:alipay": "npm run build:alipay -- --watch",
     "dev:tt": "npm run build:tt -- --watch",

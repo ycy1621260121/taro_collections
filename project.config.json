@@ -2,7 +2,6 @@
   "miniprogramRoot": "",
   "projectname": "floorMaster",
   "description": "小程序项目集成",
-  "appid": "wxc1bc398b8f605514",
   "setting": {
     "urlCheck": true,
     "es6": false,
@@ -21,5 +20,6 @@
   "compileType": "miniprogram",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
-  "condition": {}
+  "condition": {},
+  "appid": "wxc1bc398b8f605514"
 }
