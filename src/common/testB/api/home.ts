@@ -1,12 +1,12 @@
 // @ts-ignore
 import service from '@/utils/request';
 //特殊请求加上这段编码
-const otherHearders = {'Content-Type': 'application/x-www-form-urlencoded', 'Accept': '*/*'}
+const otherHeader = {'Content-Type': 'application/x-www-form-urlencoded', 'Accept': '*/*'}
 
 export const getBookList = (params, headers) => {
     return service.request({
         method: 'GET',
-        url: '/api/userfeedback/getBookList',
+        url: '/api/userFeedback/getBookList',
         data: params,
         headers: headers
     })
