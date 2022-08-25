@@ -11,7 +11,7 @@ const config = {
     828: 1.81 / 2,
   },
   sourceRoot: "src",
-  outputRoot: project + '/' + process.env.TARO_ENV,
+  outputRoot: project + '/' + process.env.TARO_ENV, //配置打包后每个项目的各端文件存放，如项目testA/weapp，testA是项目，weapp是微信小程序
   plugins: [],
   defineConstants: {},
   copy: {
@@ -76,6 +76,7 @@ const config = {
         },
       },
     },
+    //代理请求配置
     // devServer: {
     //   open: false,
     //   proxy: {

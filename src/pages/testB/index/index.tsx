@@ -2,7 +2,7 @@ import {useCallback} from "react";
 import {View, Text, Button, Image} from "@tarojs/components";
 import {useEnv, useNavigationBar, useModal, useToast} from "taro-hooks";
 // @ts-ignore
-//import {getBookList} from '@/common/api/home'
+//import {getBookList} from '@/common/testA/api/home'
 import logo from "@/images/hook.png";
 // @ts-ignore
 import HelloWord from "@/components/HelloWord";
