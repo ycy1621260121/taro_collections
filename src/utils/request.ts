@@ -1,7 +1,7 @@
 import axios from 'axios';
-
-axios.defaults.baseURL = 'https://localhost:8088/'
-const pending = [] // 声明一个数组用于存储每个ajax请求的取消函数和ajax标识
+import Taro from '@tarojs/taro'
+//axios.defaults.baseURL = 'https://localhost:8088/'
+const pending: any = [] // 声明一个数组用于存储每个ajax请求的取消函数和ajax标识
 const cancelToken = axios.CancelToken
 const removeRepeatUrl = (ever) => {
     // console.log('?????', ever)
@@ -22,7 +22,7 @@ const service = axios.create({
 });
 
 service.interceptors.request.use(
-    config => {
+  (config: any) => {
         removeRepeatUrl(config)
         config.cancelToken = new cancelToken((c) => {
             // 自定义唯一标识
@@ -55,7 +55,7 @@ service.interceptors.response.use(
                 case 404:
                     backLogin(response.data.msg)
                     break;
-                case 506:
+                case 504:
                     backLogin(response.data.msg)
                     break;
                 case 507:
@@ -70,10 +70,9 @@ service.interceptors.response.use(
             }
 
             if (flag) {
-                uni.showToast({
+                Taro.showToast({
                     title: response.data.msg,
-                    icon: 'error',
-                    mask: true
+                    icon: 'error'
                 })
                 flag = false;
                 setTimeout(() => {
@@ -134,10 +133,9 @@ service.interceptors.response.use(
 
             //console.log(message, error)
             if (flag) {
-                uni.showToast({
+                Taro.showToast({
                     title: message,
-                    icon: 'error',
-                    mask: true
+                    icon: 'error'
                 })
                 flag = false;
                 setTimeout(() => {

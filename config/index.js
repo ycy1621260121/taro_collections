@@ -1,5 +1,6 @@
 import project from "./project";
 import path from 'path';
+
 const config = {
   projectName: "floorMaster",
   date: "2022-8-23",
@@ -75,6 +76,18 @@ const config = {
         },
       },
     },
+    // devServer: {
+    //   open: false,
+    //   proxy: {
+    //     '/api': {
+    //       target: 'http://192.168.2.87:8080', // 后端地址
+    //       changeOrigin: true,
+    //       pathRewrite: {
+    //         '^/api': ''
+    //       }
+    //     }
+    //   }
+    // }
   },
   alias: {
     '@': path.resolve(__dirname, '..', 'src'),
