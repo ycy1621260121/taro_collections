@@ -1,14 +1,14 @@
-import {useCallback, useEffect} from "react";
+import {useCallback} from "react";
 import {View, Text, Button, Image} from "@tarojs/components";
 import {useEnv, useNavigationBar, useModal, useToast} from "taro-hooks";
 // @ts-ignore
-import {getBookList} from '@/common/api/home'
+//import {getBookList} from '@/common/api/home'
 import logo from "@/images/hook.png";
 // @ts-ignore
 import HelloWord from "@/components/HelloWord";
 import './index.scss'
 
-const Index = () => {
+const IndexPage = () => {
   const env = useEnv();
   const [_, {setTitle}] = useNavigationBar({title: "Taro Hooks"});
   const [show] = useModal({
@@ -37,7 +37,7 @@ const Index = () => {
 
   return (
     <View className='wrapper'>
-      <Image className='logo' src={logo}/>
+      <Image className='logo' src={logo} />
       <View className='list'>
         <Text className='note'>{env}</Text>
       </View>
@@ -52,4 +52,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default IndexPage;

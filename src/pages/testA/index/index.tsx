@@ -9,7 +9,7 @@ import './index.scss'
 interface indexProp {
   loading?: boolean
 }
-const Index:React.FC<indexProp> = (loading) => {
+const IndexPage:React.FC<indexProp> = (loading) => {
   const env = useEnv();
   const [_, {setTitle}] = useNavigationBar({title: "Taro Hooks"});
   const [show] = useModal({
@@ -50,4 +50,4 @@ const Index:React.FC<indexProp> = (loading) => {
   );
 };
 
-export default Index;
+export default IndexPage;

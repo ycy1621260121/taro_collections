@@ -3,7 +3,7 @@ import './index.scss'
 
 const HelloWord = () => {
   return (
-    <View className="wrapper">
+    <View className='wrapper'>
       大家好，我是一个组件
     </View>
   );

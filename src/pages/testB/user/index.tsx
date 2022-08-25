@@ -1,6 +1,6 @@
 import { View} from "@tarojs/components";
 
-const User = () => {
+const UserPage = () => {
   return (
     <View>
       空空如也
@@ -8,4 +8,4 @@ const User = () => {
   );
 };
 
-export default User;
+export default UserPage;
