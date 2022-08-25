@@ -499,7 +499,7 @@ var HelloWord = function HelloWord() {
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ruleSet_1_rules_5_use_0_index_tsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/babel-loader/lib/index.js??ruleSet[1].rules[5].use[0]!./index.tsx */ "./node_modules/babel-loader/lib/index.js??ruleSet[1].rules[5].use[0]!./src/pages/testB/index/index.tsx");
 
 
-var config = {"navigationBarTitleText":"Taro-hooks","enableShareAppMessage":true};
+var config = {"navigationBarTitleText":"楼掌门","enableShareAppMessage":true};
 
 _node_modules_babel_loader_lib_index_js_ruleSet_1_rules_5_use_0_index_tsx__WEBPACK_IMPORTED_MODULE_1__["default"].enableShareAppMessage = true
 var inst = Page((0,_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__.createPageConfig)(_node_modules_babel_loader_lib_index_js_ruleSet_1_rules_5_use_0_index_tsx__WEBPACK_IMPORTED_MODULE_1__["default"], 'pages/testB/index/index', {root:{cn:[]}}, config || {}))

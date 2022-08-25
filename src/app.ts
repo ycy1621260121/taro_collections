@@ -1,5 +1,6 @@
 import React from "react";
 import "./app.scss";
+import "./common/config.scss";
 
 const App: React.FC<{
   children: any;
