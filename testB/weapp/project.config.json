@@ -1,5 +1,5 @@
 {
-  "miniprogramRoot": "./",
+  "miniprogramRoot": "",
   "projectname": "floorMaster",
   "description": "小程序项目集成",
   "setting": {
@@ -15,11 +15,25 @@
     "coverView": true,
     "showShadowRootInWxmlPanel": false,
     "scopeDataCheck": false,
-    "useCompilerModule": false
+    "useCompilerModule": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
   },
   "compileType": "miniprogram",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {},
-  "appid": "wxc1bc398b8f605514"
+  "appid": "wxe10982070733ace7",
+  "libVersion": "2.25.4",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
 }
